@@ -62,11 +62,20 @@
     <script src="js/app/models/Negociacao.js"></script>
     <script>
         
-        var n = new Negociacao(new Date(), 5, 700); 
-        console.log(n.getData());
-        console.log(n.getQuantidade());
-        console.log(n.getValor());
-        console.log(n.getVolume());
+        let hoje = new Date();
+
+        let n = new Negociacao(hoje, 5, 700); 
+        
+        console.log(Object.isFrozen(n));
+
+        hoje.setDate(22);
+        n.data.setDate(22);
+        n._quantidade = 10000000;
+        
+        console.log(n.data);
+        console.log(n.quantidade);
+        console.log(n.valor);
+        console.log(n.volume);
 
     </script>
     
